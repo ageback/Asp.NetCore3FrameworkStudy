@@ -14,6 +14,7 @@ namespace helloworld
                 .ConfigureWebHost(webHostBuilder => webHostBuilder
                     // 注册Kestrel为服务器
                     .UseKestrel()
+                    .UseUrls("http://0.0.0.0:3721;https://0.0.0.0:9527")
                     // 注册处理请求的中间件
                     .Configure(app => app.Run(
                         context => context.Response.WriteAsync("Hello World.")
