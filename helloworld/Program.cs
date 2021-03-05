@@ -12,15 +12,15 @@ namespace helloworld
         static void Main(string[] args)
         {
             Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(webHostBuilder => webHostBuilder
-                    .ConfigureServices(services => services
-                        .AddRouting()
-                        .AddControllersWithViews())
-                    .UseUrls("http://0.0.0.0:3721;https://0.0.0.0:9527")
-                    // 注册处理请求的中间件
-                    .Configure(app => app
-                        .UseRouting()
-                        .UseEndpoints(endpoints=>endpoints.MapControllers()))
+                .ConfigureWebHostDefaults(webHostBuilder => webHostBuilder.UseStartup<Startup>()
+                    //.ConfigureServices(services => services
+                    //    .AddRouting()
+                    //    .AddControllersWithViews())
+                    //.UseUrls("http://0.0.0.0:3721;https://0.0.0.0:9527")
+                    //// 注册处理请求的中间件
+                    //.Configure(app => app
+                    //    .UseRouting()
+                    //    .UseEndpoints(endpoints=>endpoints.MapControllers()))
                 )
                 .Build()
                 .Run();
